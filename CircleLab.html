@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-  <html>
-  <head>
-  <title>Draw a circle</title>
-   <link rel='stylesheet' type='text/css' href='styles.css'/>
-  </head>
-  <body>
-  <canvas id="circle" width="500" height="500">
-Draw a circle.
-  </canvas>
 
+<html>
 
- <script type='text/javascript' src='script.js'></script>
+    <head>
+        <title>Draw a circle</title>
+        <link rel='stylesheet' type='text/css' href='styles.css'/>
+    </head>
+
+    <body>
+
+        <p id="circleOutput"></p>
+        <p id="pacmanOutput"></p>
+
+        <canvas id="circle" width="500" height="500">
+        Draw a circle.
+        </canvas>
+
+        <label for="radius">Choose a radius from 30 to 100 pixels:</label><br />
+        <input type="number" id="radius" min="30" max="100" value="1" />
+
+        <button id="pacmanButton">Change Pacman Size</button>
+        <button id="clearCanvas">Clear Canvas</button>
+
+        <script type='text/javascript' src='script.js'></script>
   </body>
-  </html>
+</html>

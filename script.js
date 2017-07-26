@@ -1,34 +1,23 @@
 var canvas = document.getElementById("circle");
 var ctx = canvas.getContext("2d");
+var radius = document.getElementById("radius");
 
 
-//Pacman, no mouth
+//DRAWING I COULDN'T PART WITH
 ctx.beginPath();
-ctx.arc(100,100,50,0,2*Math.PI, false);  //ctx.arc(x,y,radius,start angle, end angle, false = clockwise)
+ctx.arc(100, 400, 100, 0.2*Math.PI, 1.8*Math.PI, false);  //ctx.arc(x,y,radius,start angle, end angle, counter-clockwise)
+ctx.lineTo(100, 400);  // A line from the centre of the arc to the start
+ctx.closePath();
 ctx.fillStyle = "yellow";
 ctx.fill();    //fills shape
 ctx.stroke();  //outline of shape
-//Pacman eye
+//big Pacman eye
 ctx.beginPath();
-ctx.arc(100, 75, 10, 0, 2 * Math.PI, false);
+ctx.arc(100, 350, 20, 0, 2 * Math.PI, false);
 ctx.fillStyle = "black";
 ctx.fill();
 
-//Pacman with mouth
-ctx.beginPath();
-ctx.arc(220, 100, 50, 0.2 * Math.PI, 1.8 * Math.PI, false);
-ctx.lineTo(220, 100);  // A line from the center of the arc to the start
-ctx.closePath();
 
-ctx.fillStyle = "yellow";
-ctx.fill();
-ctx.stroke();
-
-//pacman eye
-ctx.beginPath();
-ctx.arc(220, 75, 10, 0, 2 * Math.PI, false);
-ctx.fillStyle = "black";
-ctx.fill();
 
 for (var i = 0; i < 9; i++) {
   ctx.fillRect(250 + i * 20, 100, 8, 8);  //draws filled rectangles
@@ -127,3 +116,67 @@ ctx.beginPath();
 ctx.arc(200, 270, 3, 0, 2 * Math.PI, false);
 ctx.fillStyle = "white";
 ctx.fill();
+
+
+
+
+
+function pacmanArea() {
+	var circleOutput = document.getElementById("circleOutput");
+  var pacmanOutput = document.getElementById("pacmanOutput");
+	var radiusInput = radius.value;
+	var circleArea = Math.PI * Math.pow(radiusInput, 2);  //circleArea = pi*r^2
+  var pacmanArea = 0.8*circleArea; //pacmanArea = four-fifths of circleArea based on arclength
+
+	circleOutput.innerHTML = "The area of a circle with a radius of " + radiusInput + " is " + circleArea.toFixed(2) + ".";
+  pacmanOutput.innerHTML = "The area of Pacman with a radius of " + radiusInput + " is " + pacmanArea.toFixed(2) + ".";
+
+};
+
+/*function drawCircle() {
+	var radiusInput = radius.value;
+	var canvas = document.getElementById("circle");
+	var ctx = canvas.getContext("2d");
+
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.beginPath();
+	ctx.arc(150, 75, radiusInput, 0, 2 * Math.PI);
+  ctx.fillStyle = "yellow";
+  ctx.fill();
+	ctx.stroke();
+}*/
+
+function pacman() {
+  var radiusInput = radius.value;
+  var canvas = document.getElementById("circle");
+  var ctx = canvas.getContext("2d");
+//clear canvas
+//ctx.clearRect(0, 0, canvas.width, canvas.height);
+//pacman
+ctx.beginPath();
+ctx.arc(100, 100, radiusInput, 0.2 * Math.PI, 1.8 * Math.PI, false);
+ctx.lineTo(100, 100);
+ctx.closePath();
+ctx.fillStyle = "yellow";
+ctx.fill();
+ctx.stroke();
+//pacman eye
+ctx.beginPath();
+ctx.arc(100, 75, 0.1*radiusInput, 0, 2 * Math.PI, false);
+ctx.fillStyle = "black";
+ctx.fill();
+}
+
+function runFunctions () {
+  pacman();
+  pacmanArea();
+}
+
+/*function clearCanvas() {
+  var canvas = document.getElementById("circle");
+  var ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}*/
+
+pacmanButton.onclick = runFunctions;
+//clearCanvas.onclick = clearCanvas;
