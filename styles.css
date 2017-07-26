@@ -1,10 +1,48 @@
 canvas {
-    border: 1px solid black;
+    border: 6px groove yellow;
     margin: 5% auto;
     position: absolute;
-    left: 50%;
+    left: 80%;
     margin-left:-300px;
     top: 50%;
     margin-top:-300px;
+    background-color: white;
+}
 
+html {
+  background: url(pacmanFence.jpg) repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body{
+  background-color: yellow;
+  width: 33%;
+  padding: 3%;
+  color: blue;
+  border: 6px groove blue;
+  font-family: Blippo, fantasy, Serif;
+}
+
+button{
+  background-color: blue;
+  color: yellow;
+  font-family: Blippo, fantasy, Serif;
+}
+
+button:hover {
+  background-color: purple;
+  color: green;
+}
+
+button:active {
+  background-color: yellow;
+  color: blue;
+}
+
+input#radius {
+  background-color: blue;
+  color: yellow;
 }
